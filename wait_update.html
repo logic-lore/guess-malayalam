@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="res/jquery.min.js"></script>
+	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
+	<style>
+		@font-face {
+			font-family: "Rubik";
+			src: url(res/fonts/Roboto-Medium.ttf);
+		}
+
+		html {
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		body {
+			margin: 0;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			background-color: #f2f3fc;
+			font-family: Rubik;
+			padding-bottom: 10vw;
+			color: white;
+			user-select: none;
+			/* supported by Chrome and Opera */
+			-webkit-user-select: none;
+			/* Safari */
+			-khtml-user-select: none;
+			/* Konqueror HTML */
+			-moz-user-select: none;
+			/* Firefox */
+			-ms-user-select: none;
+			/* Internet Explorer/Edge */
+		}
+
+		.wait_update_con {
+			width: 100vw;
+			height: 100vh;
+			z-index: 100;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, .5);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: .4s ease;
+			animation: wait_update .4s ease 1;
+		}
+
+		@keyframes wait_update {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.wait_update {
+			width: 85vw;
+			background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+			border-radius: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			padding: 3vh 3vw;
+			transition: .3s ease;
+			animation: wait .3s ease 1;
+		}
+
+		@keyframes wait {
+			0% {
+				opacity: 0;
+				transform: scale(0);
+			}
+
+			100% {
+				opacity: 1;
+				transform: scale(1);
+			}
+		}
+
+		.wait_update_txt {
+			width: 100%;
+			text-align: center;
+			font-size: larger;
+		}
+
+		.wait-update-close {
+			margin: 4vh 10vw 0vh 10vw;
+			width: 60px;
+		}
+
+		.wait-update-close:active {
+			transform: scale(.8);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wait_update_con">
+		<div class="wait_update">
+			<div class="wait_update_txt">You have completed the levels.<br />Please wait for new updates.</div>
+			<img src="res/ok.webp" class="wait-update-close">
+		</div>
+	</div>
+	<audio id="button2" src="res/button2.mp3"></audio>
+	<script>
+		$('.wait-update-close').click(function () {
+			document.getElementById("button2").play();
+			$('.wait_update').css({ transform: 'scale(0)', opacity: '0' });
+			$('.wait_update_con').css({ opacity: '0' });
+			setTimeout(function () {
+				window.history.back();
+			}, 300);
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="res/jquery.min.js"></script>
+    <style>
+        @font-face {
+            font-family: Rubik;
+            src: url(res/fonts/Roboto-Medium.ttf);
+        }
+
+        html {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f2f3fc;
+            margin: 0;
+            font-family: Rubik;
+            user-select: none;
+            /* supported by Chrome and Opera */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+        }
+
+        .top {
+            width: 90vw;
+            height: 10vh;
+            margin-left: 5vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-img {
+            width: 50px;
+            height: 50px;
+            transform: scale(1.2);
+            opacity: 0;
+            transition: all 350ms ease;
+        }
+
+        .back-img:active {
+            transform: scale(.9) !important;
+        }
+
+        .coins {
+            width: fit-content;
+            min-width: 90px;
+            padding: .5vh 2vw;
+            background-color: white;
+            box-shadow: 0px 0px 4px #0000004d;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            transition: all 350ms ease;
+            transform: scale(1.2);
+            opacity: 0;
+            margin-left: 4vw;
+        }
+
+        .coins-img {
+            width: 30px;
+            height: 30px;
+        }
+
+        #coins {
+            width: 15vw;
+            font-size: medium;
+            font-weight: 100;
+            transform: translateX(1.8vw);
+        }
+
+        .bottom {
+            width: 100vw;
+            height: 90vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content: baseline;
+            transform: scale(1.2);
+            opacity: 0;
+            transition: all 350ms ease;
+            overflow-y: scroll;
+        }
+
+        .active:active {
+            transition: none;
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <img src="res/back.webp" class="back-img active">
+        <div class="coins">
+            <img src="res/coins.webp" class="coins-img">
+            <div id="coins">3</div>
+        </div>
+    </div>
+    <style>
+        .ct {
+            width: 90vw;
+            max-width: 600px;
+            margin-top: 15px;
+            padding: 10px 0;
+            background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ct-sub-bg {
+            width: 40vw;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            font-size: x-large;
+            color: white;
+
+        }
+
+        .hint-img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .buy {
+            width: 90px;
+            padding: 12px 0;
+            transform: translateX(-4.7vw);
+            background-color: white;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            border-radius: 10px;
+        }
+
+        .buy-ct {
+            width: 100%;
+            text-align: center;
+        }
+
+        .video-img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .ad-class {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <div class="bottom">
+        <div class="ct ct1">
+            <div class="ct-sub-bg">
+                <img src="res/coins.webp" class="hint-img"> + 5
+            </div>
+            <div class="buy free active"><img src="res/video.webp" class="video-img"> Free</div>
+        </div>
+
+        <div class="ct ct2">
+            <div class="ct-sub-bg">
+                <img src="res/coins.webp" class="hint-img"> + 50
+            </div>
+            <div class="buy buy1 active">Buy</div>
+        </div>
+
+        <div class="ct ct3">
+            <div class="ct-sub-bg">
+                <img src="res/coins.webp" class="hint-img"> + 100
+            </div>
+            <div class="buy buy2 active">
+                <div class="buy-ct">Buy</div>
+            </div>
+        </div>
+
+        <div class="ct ct4">
+            <div class="ct-sub-bg">
+                <img src="res/coins.webp" class="hint-img"> + 150
+            </div>
+            <div class="buy buy3 active">
+                <div class="buy-ct">Buy</div>
+            </div>
+        </div>
+
+        <style>
+            .ct-top {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-left: 10px;
+            }
+            .ct-mid {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                margin: 20px 0;
+            }
+            .ct-btm {
+                margin-left: 10px;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .rem-bar-bg {
+                width: 75%;
+                height: 30px;
+                background-color: white;
+                display: flex;
+                border-radius: 10px;
+            }
+            .rem-fill-bar {
+                width: 0%;
+                height: 100%;
+                background-color: #ffb200;
+                display: flex;
+                justify-content: flex-end;
+                transition: all ease 3s;
+                border-radius: 10px;
+            }
+            .rem-coins-bg {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .rem-img {
+                width: 15px;
+                height: 15px;
+            }
+            .rem-btm-txt {
+                font-size: small;
+            }
+            .rem-fill-coins {
+                color: #ffb200;
+                transform: translate(18px, -25px);
+            }
+            .remove-txt {
+                margin-left: 10px;
+            }
+        </style>
+        <div class="ct" style="color: white;">
+            <div class="ct-top">
+                <img src="res/block.webp" class="hint-img">
+                <div class="remove-txt">Remove Ads for FREE</div>
+            </div>
+            <div class="ct-mid">
+                <div class="rem-coins-bg"><img src="res/coins.webp" class="rem-img">0</div>
+                <div class="rem-bar-bg">
+                    <div class="rem-fill-bar"><div class="rem-coins-bg rem-fill-coins"><img src="res/coins.webp" class="rem-img"><span id="rem-fill-coins">0</span></div></div>
+                </div>
+                <div class="rem-coins-bg"><img src="res/coins.webp" class="rem-img">500</div>
+            </div>
+            <div class="ct-btm">
+                <div class="rem-btm-txt">Buy <span><img src="res/coins.webp" class="rem-img"></span> 500 or more coins to remove Interstitial (Full Screen) Ads</div>
+                <div class="buy rem-ad-btn active" style="color: black; width: 180px; opacity: .3;">Remove Ad</div>
+            </div>
+        </div>
+
+        <style>
+            .divider-bg {
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 30px;
+            }
+
+            .divider-bar {
+                width: 20%;
+                height: 1px;
+                background-color: #24282c;
+            }
+
+            .divider-ct {
+                margin: 0 10px;
+            }
+
+            .app-img {
+                width: 50px;
+                margin-left: 10px;
+            }
+
+            .app-name {
+                width: 40%;
+                font-size: medium;
+                text-align: center;
+                color: white;
+            }
+
+            .empty {
+                width: 100vw;
+                height: 40px;
+            }
+        </style>
+        <div class="divider-bg">
+            <div class="divider-bar"></div>
+            <div class="divider-ct">More apps</div>
+            <div class="divider-bar"></div>
+        </div>
+        <div class="ct">
+            <img src="res/app/eng.png" class="app-img">
+            <div class="app-name">Guess English Songs</div>
+            <div class="buy active">
+                <div class="buy-ct"
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.english`'>
+                    Install</div>
+            </div>
+        </div>
+        <div class="ct">
+            <img src="res/app/anime.png" class="app-img">
+            <div class="app-name">Guess Anime</div>
+            <div class="buy active">
+                <div class="buy-ct"
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.anime.guess`'>
+                    Install</div>
+            </div>
+        </div>
+        <div class="ct">
+            <img src="res/app/bollywood.png" class="app-img">
+            <div class="app-name">Guess Bollywood Movie</div>
+            <div class="buy active">
+                <div class="buy-ct"
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.bollywood`'>
+                    Install</div>
+            </div>
+        </div>
+        <div class="ct">
+            <img src="res/app/tamil.png" class="app-img">
+            <div class="app-name">Guess Tamil Movie</div>
+            <div class="buy active">
+                <div class="buy-ct"
+                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.tamil`'>
+                    Install</div>
+            </div>
+        </div>
+        <div class="empty"></div>
+
+    </div>
+
+    <script>
+        setTimeout(() => { $(".coins").css({ transform: 'scale(1)', opacity: '1' }); }, 100);
+        setTimeout(() => { $(".back-img").css({ transform: 'scale(1)', opacity: '1' }); }, 200);
+        setTimeout(() => { $(".bottom").css({ transform: 'scale(1)', opacity: '1' }); }, 400);
+
+        function Outro() {
+            setTimeout(() => { $(".bottom").css({ transform: 'scale(1.2)', opacity: '0' }); }, 100);
+            setTimeout(() => { $(".coins").css({ transform: 'scale(1.2)', opacity: '0' }); }, 200);
+            setTimeout(() => { $(".back-img").css({ transform: 'scale(1.2)', opacity: '0' }); }, 300);
+
+        }
+
+        coins = parseInt(localStorage.coins); $("#coins").html(coins);
+        bought_coins = parseInt(localStorage.mal_bought_coins)
+        isAdRemoved = parseInt(localStorage.mal_isAdRemoved)
+        adRemoveLimit = 500;
+
+        function UpdateBoughtCoin() {
+            $("#rem-fill-coins").text(bought_coins);
+            fill_percent = bought_coins / adRemoveLimit * 100
+            $(".rem-fill-bar").css({width: fill_percent+'%'});
+            if (bought_coins >= adRemoveLimit) {
+                $(".rem-ad-btn").css({opacity:'1'});
+            }
+        }
+
+        function HideAdsCt() {
+            $(".ct-mid, .ct-btm").fadeOut(0);
+            $(".remove-txt").text('Full Screen Ad Removed');
+        }
+
+        if (isAdRemoved == 1) {
+            // Ad is removed
+            HideAdsCt();
+        } else {
+            // Ad is NOT removed
+            setTimeout(() => {
+                UpdateBoughtCoin();
+            }, 100);
+        }
+
+        $(".rem-ad-btn").click(function() {
+            if (isAdRemoved == 0 && bought_coins >= adRemoveLimit) {
+                localStorage.mal_isAdRemoved = 1;
+                $(".rem-ad-btn").text('Ad Removed');
+                setTimeout(() => {HideAdsCt();}, 400);
+            }
+        });
+
+        $(".back-img").click(function () {
+            Outro();
+            setTimeout(() => { window.history.back(); }, 450);
+        });
+
+        $(".free").click(function () {
+            setTimeout(() => { parent.location = "https://reward"; }, 350);
+        });
+        $(".buy1").click(function () {
+            setTimeout(() => { parent.location = "https://item1"; }, 350);
+        });
+        $(".buy2").click(function () {
+            setTimeout(() => { parent.location = "https://item2"; }, 350);
+        });
+        $(".buy3").click(function () {
+            setTimeout(() => { parent.location = "https://item3"; }, 350);
+        });
+
+        setInterval(() => {
+            coins = parseInt(localStorage.coins); $("#coins").html(coins);
+            bought_coins = parseInt(localStorage.mal_bought_coins);
+            UpdateBoughtCoin();
+        }, 2500);
+    </script>
+</body>
+
+</html>

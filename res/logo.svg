@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 135.46666 135.46667"
+   height="512"
+   width="512">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-161.53332)"
+     id="layer1">
+    <ellipse
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:4.46500015;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="ellipse825"
+       cx="81.166084"
+       cy="224.04652"
+       rx="41.426773"
+       ry="39.021351" />
+    <ellipse
+       ry="39.021351"
+       rx="41.426773"
+       cy="224.04652"
+       cx="55.206219"
+       id="path815"
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:4.46500015;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <g
+       id="flowRoot817"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:192px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:'Consolas Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.73426771,0,0,0.62448721,-135.09306,132.53358)"
+       aria-label="4">
+      <path
+         id="path843"
+         d="m 287.01953,181.91406 v 19.58772 l -22.3125,5.34978 v -24.9375 h -53.36005 l -3.63995,-19.59375 47.8125,-77.999997 31.5,7.061709 v 70.375788 h 26.20639 l -7.64389,20.15625 z m -22.03125,-75.46875 -34.875,55.3125 h 34.875 z" />
+    </g>
+    <flowRoot
+       style="fill:black;fill-opacity:1;stroke:none;font-family:Consolas;font-style:normal;font-weight:bold;font-size:20.20399984px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Consolas Bold';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
+       id="flowRoot827"
+       xml:space="preserve"><flowRegion
+         style="-inkscape-font-specification:'Consolas Bold';font-family:Consolas;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;"
+         id="flowRegion829"><rect
+           style="-inkscape-font-specification:'Consolas Bold';font-family:Consolas;font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;"
+           y="375.62939"
+           x="23.233509"
+           height="37.375645"
+           width="63.63961"
+           id="rect831" /></flowRegion><flowPara
+         id="flowPara833" /></flowRoot>    <text
+       id="text853"
+       y="275.63379"
+       x="19.510773"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.34564161px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:14.53097153px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.26458332"
+         id="tspan851"
+         y="275.63379"
+         x="19.510773"><tspan
+           style="stroke-width:0.26458332"
+           id="tspan849"
+           y="275.63379"
+           x="19.510773">OFORDY</tspan></tspan></text>
+  </g>
+</svg>

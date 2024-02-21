@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background: #ccc;
+        }
+
+        .main-img-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 300px;
+        }
+
+        .main-img-bg .front {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #262626;
+            backface-visibility: hidden;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: 1s;
+        }
+
+        .main-img-bg:hover .front {
+            transform: perspective(1000px) rotateY(180deg);
+        }
+
+        .main-img-bg .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f00;
+            backface-visibility: hidden;
+            transform: perspective(1000px) rotateY(-180deg);
+            transition: 1s;
+        }
+
+        .main-img-bg:hover .back {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        /**********  front  **************/
+        .main-img-bg .front .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .main-img-bg .front .center img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .main-img-bg .front .center h1 {
+            font-size: 25px;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        /**********  back  **************/
+        .main-img-bg .back .row {
+            position: relative;
+            width: 100%;
+            height: 50%;
+        }
+
+        .main-img-bg .back .row:nth-of-type(1) {
+            background: #fff;
+            border-bottom: 10px solid #f00;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 150px;
+        }
+
+        .main-img-bg .back .row:nth-of-type(2) {
+            background: #262626;
+            padding: 20px 30px;
+            box-sizing: border-box;
+        }
+
+        .main-img-bg .back .row img {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .main-img-bg .back .row h1 {
+            font-size: 25px;
+            color: #262626;
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .main-img-bg .back .row span {
+            position: relative;
+            display: block;
+            font-size: 20px;
+            color: #fff;
+            box-sizing: border-box;
+            padding: 0 0 0 35px;
+            margin-bottom: 5px;
+        }
+
+        .main-img-bg .back .row span::before {
+            content: '';
+            font-family: 'fontAwesome';
+            position: absolute;
+            top: 2px;
+            bottom: 2px;
+            left: 2px;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .main-img-bg .back .row span:nth-of-type(1)::before {
+            content: '\f095';
+        }
+
+        .main-img-bg .back .row span:nth-of-type(2)::before {
+            content: '\f003';
+        }
+
+        .main-img-bg .back .row span:nth-of-type(3)::before {
+            content: '\f041';
+        }
+    </style>
+</head>
+
+<body>
+    <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <div class="main-img-bg">
+        <div class="front">
+            <div class="center">
+                <img src="https://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-White-Large.png">
+                <h1>Bousahla Mounir</h1>
+            </div>
+        </div>
+        <div class="back">
+            <div class="row">
+                <img
+                    src="https://assets.codepen.io/583564/internal/avatars/users/default.png?fit=crop&format=auto&height=512&version=1&width=512">
+                <h1>Bousahla Mounir</h1>
+            </div>
+            <div class="row">
+                <span>+91 987 568 9685</span>
+                <span>bousahlamounir@gmail.com</span>
+                <span>Sidi Bel Abbes , Algerie</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

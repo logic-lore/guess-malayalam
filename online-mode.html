@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online-Menu</title>
+    <script src="res/jquery.min.js"></script>
+    <style>
+        @font-face {
+            font-family: "Rubik";
+            src: url(res/fonts/Roboto-Medium.ttf);
+        }
+
+        html {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f2f3fc;
+            font-family: Rubik;
+            font-weight: 1000;
+            color: #000000;
+            user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .full {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: space-around;
+        }
+
+        .txt {
+            width: 100%;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .main-ct {
+            width: 100%;
+        }
+
+        .profile {
+            width: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 10px auto;
+        }
+
+        .profile-img {
+            width: 80px;
+        }
+
+        .vs-txt {
+            text-align: center;
+            font-size: 55px;
+        }
+
+        .amt-bg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coins-img {
+            width: 25px;
+            height: 25px;
+        }
+
+        #coins {
+            width: 15vw;
+            font-size: x-large;
+            transform: translateX(1.8vw);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="full">
+        <div class="txt">Searching...</div>
+        <div class="main-ct">
+            <div class="profile">
+                <img src="res/profile.svg" class="profile-img">
+                <div class="profile-txt">You</div>
+            </div>
+            <div class="vs-txt">VS</div>
+            <div class="profile">
+                <img src="res/profile.svg" class="profile-img">
+                <div class="profile-txt" id="opp-txt">???????</div>
+            </div>
+        </div>
+        <div class="amt-bg">
+            <img src="res/coins.webp" class="coins-img">
+            <div id="coins">10</div>
+        </div>
+    </div>
+
+    <style>
+        .online-con {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 150;
+            transition: all .4s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            transition: all .4s ease;
+        }
+
+        .game-over {
+            width: 80vw;
+            max-width: 500px;
+            padding: 20px;
+            background: rgb(111, 134, 245);
+            background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+            border-radius: 3vw;
+            animation: game-over 400ms ease 1;
+            transition: all 400ms ease;
+        }
+
+        @keyframes game-over {
+            0% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .online-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: white;
+        }
+        .online-txt {
+            font-size: larger;
+            font-weight: 100;
+        }
+
+        .close-img {
+            background-color: white;
+            border-radius: 10px;
+            width: 15px;
+            padding: 10px;
+        }
+
+        .close-img:active {
+            opacity: .5;
+        }
+
+        .rew {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: large;
+            margin: 15px;
+        }
+
+        .rew:active {
+            opacity: .5;
+        }
+
+        .toast {
+            width: 90vw;
+            position: fixed;
+            top: 80vh;
+            left: 5vw;
+            padding: 1vh 0;
+            background-color: black;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            font-size: large;
+            font-weight: 100;
+            transition: all 400ms ease;
+            display: none;
+            z-index: 999;
+            animation: toast 400ms ease 1;
+        }
+
+        @keyframes toast {
+            0% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <div class="online-con">
+        <div class="game-over">
+            <div class="online-top">
+                <div class="online-txt">Select an Amount</div>
+                <img src="res/close.svg" class="close-img">
+            </div>
+            <div class="online-btm">
+                <div class="rew" id="rew1"><img src="res/coins.webp" class="coins-img">0 (no reward)</div>
+                <div class="rew" id="rew2"><img src="res/coins.webp" class="coins-img">5</div>
+                <div class="rew" id="rew3"><img src="res/coins.webp" class="coins-img">10</div>
+                <div class="rew" id="rew4"><img src="res/coins.webp" class="coins-img">15</div>
+            </div>
+        </div>
+    </div>
+    <div class="toast"></div>
+    <audio src="res/audio/finding.mp3" id="finding-aud" loop></audio>
+    <audio src="res/audio/found.mp3" id="found-aud"></audio>
+    <script>
+        function checkNetConnection() {
+            jQuery.ajaxSetup({ async: false });
+            re = "";
+            r = Math.round(Math.random() * 10000);
+            $.get("a.txt", { subins: r }, function (d) {
+                re = true;
+            }).error(function () {
+                re = false;
+            });
+            return re;
+        }
+        setInterval(() => {
+            console.log(checkNetConnection())
+        }, 4000);
+
+        function Toast(toastStr) {
+            $(".toast").html(toastStr);
+            $(".toast").fadeIn(0);
+            toastTimer = setTimeout(() => { $(".toast").fadeOut(); }, 3000);
+        }
+
+        min = 3; //seconds
+        max = 10; //seconds
+        tmpVar = (Math.random() * (max - min + 1) + min).toFixed(0);
+        oppCode = (Math.random() * (999999 - 10000 + 1) + 10000).toFixed(0); //Opponent code
+        coins = localStorage.coins
+
+        onlineMode = localStorage.onlineMode;
+
+        console.log(tmpVar)
+        console.log(oppCode)
+
+        function CheckOpponent() {
+            document.getElementById('finding-aud').play();
+            setTimeout(() => {
+                document.getElementById('finding-aud').pause();
+                document.getElementById('found-aud').play();
+                localStorage.oppCode = oppCode;
+                $("#opp-txt").text('Guest' + oppCode);
+                $(".txt").text('Found the Opponent');
+                coins -= reward;
+                localStorage.coins = coins;
+                setTimeout(() => {
+                    if (onlineMode == 'movie') {
+                        location.replace('movie/movie-online.html');
+                    }
+                }, 2000);
+            }, tmpVar * 1000);
+        }
+
+
+        $("#rew1").click(function () {
+            reward = 0;
+            localStorage.reward = 0;
+            $(".online-con").fadeOut();
+            setTimeout(() => {
+                CheckOpponent();
+            }, 700);
+        });
+        $("#rew2").click(function () {
+            reward = 5;
+            RewFunc();
+        });
+        $("#rew3").click(function () {
+            reward = 10;
+            RewFunc();
+        });
+        $("#rew4").click(function () {
+            reward = 15;
+            RewFunc();
+        });
+        function RewFunc() {
+            if (coins < reward) {
+                console.log('No coins');
+                Toast('No Coins');
+                return;
+            }
+
+            $(".online-con").fadeOut();
+            localStorage.reward = reward;
+            $("#coins").text(reward);
+
+            setTimeout(() => {
+                CheckOpponent();
+            }, 700);
+        }
+        $('.close-img').click(function () {
+            setTimeout(() => {
+                window.history.back();
+            }, 400);
+        });
+    </script>
+</body>
+
+</html>

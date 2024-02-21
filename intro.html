@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="res/jquery.min.js"></script>
+<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
+<style>
+html {
+width:100vw; height:100vh;
+overflow:hidden;
+}
+body {
+margin:0; width:100vw; height:100vh;
+overflow:hidden;
+background-color: #f2f3fc;
+}
+</style>
+</head>
+<body>
+<script>
+localStorage.setItem('InterAd', 0);
+setTimeout(function() {location.replace("menu.html");}, 500);
+if (localStorage.openTime == null)
+    localStorage.openTime = 0;
+localStorage.openTime++;
+</script>
+</body>
+</html>

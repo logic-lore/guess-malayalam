@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128mm"
+   height="128mm"
+   viewBox="0 0 128 128"
+   version="1.1"
+   id="svg49755"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs49752">
+    <linearGradient
+       xlink:href="#linearGradient19003"
+       id="linearGradient30387"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.23883277,0,0,0.23883277,285.45316,1145.233)"
+       x1="357.76001"
+       y1="367.03076"
+       x2="474.28952"
+       y2="367.03076" />
+    <linearGradient
+       id="linearGradient19003">
+      <stop
+         style="stop-color:#536fed;stop-opacity:1;"
+         offset="0"
+         id="stop18999" />
+      <stop
+         style="stop-color:#6f86f5;stop-opacity:1;"
+         offset="1"
+         id="stop19001" />
+    </linearGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath30379">
+      <path
+         id="path30381"
+         style="fill:#2a3949;fill-opacity:1;stroke:none;stroke-width:0.236;stroke-linecap:round;stroke-linejoin:round"
+         d="m 384.81355,1238.9942 a 5.9944664,5.9944664 0 0 0 -5.99446,5.9944 5.9944664,5.9944664 0 0 0 0.98235,3.2825 11.575521,5.9944664 0 0 0 -6.56342,5.3992 11.575521,5.9944664 0 0 0 11.57553,5.9944 11.575521,5.9944664 0 0 0 11.57552,-5.9944 11.575521,5.9944664 0 0 0 -6.56135,-5.4023 5.9944664,5.9944664 0 0 0 0.98028,-3.2794 5.9944664,5.9944664 0 0 0 -5.99445,-5.9944 z" />
+    </clipPath>
+  </defs>
+  <g
+     id="layer1">
+    <g
+       id="g49733"
+       transform="matrix(4.4953329,0,0,4.4953329,-1665.865,-5478.2796)">
+      <rect
+         style="fill:url(#linearGradient30387);fill-opacity:1;stroke:none;stroke-width:2.61593;stroke-linecap:round;stroke-linejoin:round"
+         id="rect30383"
+         width="27.831066"
+         height="27.831066"
+         x="370.89801"
+         y="1218.9762"
+         ry="13.915533" />
+      <rect
+         style="fill:#2a3949;fill-opacity:1;stroke:none;stroke-width:2.61593;stroke-linecap:round;stroke-linejoin:round"
+         id="rect30385"
+         width="27.831066"
+         height="27.831066"
+         x="370.89801"
+         y="1231.1804"
+         ry="13.915533"
+         clip-path="url(#clipPath30379)"
+         transform="translate(0,-12.194946)" />
+    </g>
+  </g>
+</svg>

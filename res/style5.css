@@ -1,0 +1,7 @@
+.main-img-bg {
+height: 35vh;
+}
+.main-img {
+max-width: none; max-height: none;
+width: 35vh; height: 35vh;
+}

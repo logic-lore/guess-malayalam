@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+
+<head>
+	<script src="res/jquery.min.js"></script>
+	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
+	<style>
+		@font-face {
+			font-family: "Rubik";
+			src: url(res/fonts/Roboto-Medium.ttf);
+		}
+
+		html {
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		body {
+			margin: 0;
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			background-color: #f2f3fc;
+			font-family: Rubik;
+			font-weight: 1000;
+			color: #000000;
+			user-select: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+		}
+
+		.coffee-bg {
+			display: flex;
+			align-items: center;
+		}
+
+		.coffee-txt {
+			background-color: white;
+			box-shadow: 0px 0px 4px #0000004d;
+			border-radius: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: small;
+			padding: 9px 9px;
+			transform-origin: right;
+			transform: scaleX(0);
+			animation: coffee-txt 2s ease 1;
+		}
+
+		@keyframes coffee-txt {
+			0% {
+				transform: scaleX(0);
+				opacity: 0;
+			}
+
+			20% {
+				transform: scaleX(1);
+				opacity: 1;
+			}
+
+			80% {
+				transform: scaleX(1);
+				opacity: 1;
+			}
+
+			100% {
+				transform: scaleX(0);
+				opacity: 1;
+			}
+		}
+
+		.coffee-img {
+			width: 50px;
+			height: 50px;
+			z-index: 10;
+			opacity: 0;
+			transition: all .2s ease;
+			transform: translateX(-10px);
+			transform-origin: center;
+		}
+
+		.coffee-img:active {
+			transition: none;
+			opacity: .6 !important;
+		}
+
+		.bg-img {
+			width: 100vw;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+			transform: translateY(-100vh);
+			transition: all 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+		}
+
+		.ct-bg {
+			height: 90vh;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-content: space-evenly;
+		}
+
+		.ct {
+			width: 95vw;
+			max-width: 500PX;
+			height: 90px;
+			border-radius: 10px;
+			transition: all .3s;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-content: center;
+			/* margin-top: 2vh; */
+			transform: scale(1.2);
+			opacity: 0;
+			transition: all 350ms ease;
+			position: relative;
+			color: white;
+			background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+			overflow: hidden;
+			/* box-shadow: 0px 0px 18px rgba(0, 0, 0, .3); */
+		}
+
+		.ct:active {
+			transition: none;
+			opacity: .6 !important;
+		}
+
+		.ct-main-img {
+			width: 60px;
+			height: 60px;
+			position: absolute;
+			top: 20%;
+			left: 10%;
+		}
+
+		.ct-img {
+			width: 30vw;
+			height: 30vw;
+			margin-bottom: 2vw;
+			border-radius: 10px;
+		}
+
+		.ct-txt {
+			width: 100%;
+			text-align: center;
+			font-size: large;
+			position: relative;
+		}
+
+		.score {
+			width: 100%;
+			text-align: center;
+			/* padding-top: 4vw; */
+			font-size: x-large;
+			position: relative;
+		}
+
+		.mid {
+			width: 100vw;
+			height: 10vh;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.coins {
+			width: fit-content;
+			padding: .5vh 2vw;
+			background-color: white;
+			border-radius: 10px;
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			box-shadow: 0px 0px 4px #0000004d;
+			transition: all .6s ease;
+			opacity: 0;
+			margin-left: 4vw;
+		}
+
+		.coins:active {
+			transition: none;
+			opacity: .5 !important;
+		}
+
+		.add-img {
+			width: 35px;
+			height: 35px;
+			margin-left: 20px;
+		}
+		.no-ads-img {
+			width: 35px;
+			height: 35px;
+			transition: all 350ms ease;
+			opacity: 0;
+		} .no-ads-img:active {
+			transition: none;
+			opacity: .5 !important;
+		}
+		.coins-img {
+			width: 25px;
+			height: 25px;
+		}
+
+		#coins {
+			width: 15vw;
+			font-size: x-large;
+			transform: translateX(1.8vw);
+		}
+
+		.special-bg {
+			width: 10vh;
+			height: 10vh;
+			padding-right: 35px;
+			opacity: 0;
+			transition: all .6s ease;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.special-img {
+			width: 10vh;
+			height: 10vh;
+		}
+
+		.back-img {
+			position: absolute;
+			top: 1vw;
+			left: 1vw;
+			width: 14vw;
+		}
+
+		.newAdded {
+			width: 90%;
+			background-color: #ecaaaa;
+			border-radius: 4px;
+			color: #3B0A01;
+			position: relative;
+			padding: 1vh 0;
+			text-align: center;
+			display: none;
+			animation: toast 600ms ease 1;
+		}
+
+		.toast {
+			width: 90vw;
+			position: fixed;
+			top: 80vh;
+			left: 5vw;
+			padding: 1vh 0;
+			background-color: black;
+			border-radius: 10px;
+			color: white;
+			text-align: center;
+			font-size: large;
+			font-weight: 100;
+			transition: all 400ms ease;
+			display: none;
+			z-index: 999;
+			animation: toast 400ms ease 1;
+		}
+
+		@keyframes toast {
+			0% {
+				transform: scale(1.2);
+				opacity: 0;
+			}
+
+			100% {
+				transform: scale(1);
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="mid">
+		<div class="coins">
+			<img src="res/coins.webp" class="coins-img">
+			<div id="coins">0</div>
+			<img src="res/add.webp" class="add-img">
+		</div>
+		<img src="res/block.webp" class="no-ads-img">
+		<div class="coffee-bg">
+			<div class="coffee-txt">Support me!</div>
+			<img src="res/coffee.webp" class="coffee-img">
+		</div>
+		<!-- <div class="special-bg">
+		</div> -->
+	</div>
+
+	<div class="ct-bg">
+		<div class="ct-hold ct-hold1">
+			<div class="ct ct1" style="width:65%">
+				<img src="res/movie2.png" class="ct-main-img">
+				<div class="ct-txt">MOVIE</div>
+				<div class="score"><span id="levels">0</span></div>
+				<div class="newAdded"><span id="newLevel"></span> new levels added</div>
+			</div>
+			<div class="online-bg" id="movieOnline">
+				<div class="online-txt">PLAY ONLINE</div>
+				<div class="rating-img-bg">
+					<img src="res/rating.svg" class="rating-img">
+					<div class="rating-txt" id="movie-rate"></div>
+				</div>
+			</div>
+		</div>
+
+		<style>
+			.ct-hold {
+				width: 90vw;
+				max-width: 500PX;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+				align-items: center;
+				background-color: #fff;
+				box-shadow: 1px 1px 9px #0000008f;
+				padding: 10px 5px;
+				border-radius: 10px;
+				transition: all 350ms ease;
+			}
+
+			.online-bg {
+				width: 30%;
+				height: 90px;
+				background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+				border-radius: 10px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+				align-items: center;
+				color: white;
+				transition: all .4s ease;
+			}
+
+			.online-bg:active {
+				opacity: .4;
+			}
+
+			.online-txt {
+				font-size: small;
+				width: 100%;
+				text-align: center;
+			}
+
+			.rating-img-bg {
+				width: 70px;
+				height: 40px;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.rating-img {
+				width: 65px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.rating-txt {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		</style>
+
+
+		<img src="res/ad/anime640x100.png" class="ad-bg">
+
+		<div class="ct-hold ct-hold2">
+			<div class="ct ct2">
+				<style>
+					.new-badge {
+						position: absolute;
+						top: 14px;
+						left: 78%;
+						width: 29%;
+						height: 30px;
+						transform: rotate(45deg);
+						background-color: aqua;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						color: #3c0202;
+					}
+				</style>
+				<div class="new-badge">NEW</div>
+				<img src="res/actor2.png" class="ct-main-img">
+				<div class="ct-txt">ACTOR/ACTRESS</div>
+				<div class="score"><span id="actor-level">0</span></div>
+			</div>
+			<!-- <div class="online-bg">
+				<div class="online-txt">PLAY ONLINE</div>
+				<div class="rating-img-bg">
+					<img src="res/rating.svg" class="rating-img">
+					<div class="rating-txt">1</div>
+				</div>
+			</div> -->
+		</div>
+
+		<div class="ct-hold ct-hold3">
+			<div class="ct ct3">
+				<div class="new-badge">NEW</div>
+				<img src="res/song.png" class="ct-main-img">
+				<div class="ct-txt">Songs</div>
+				<div class="score"><span id="song-level">0</span></div>
+			</div>
+		</div>
+
+		<style>
+			.ad-bg {
+				width: 98vw;
+				max-width: 500px;
+				border-radius: 10px;
+				overflow: hidden;
+				transition: all 350ms ease;
+				animation: feedback 1s ease-in 1;
+			}
+
+			.ad-bg:active {
+				transition: none;
+				opacity: .5;
+			}
+
+			.rate-bg {
+				width: 85vw;
+				background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+				border-radius: 10px;
+				text-align: center;
+				padding: 2vh 0;
+				color: white;
+				transition: all 350ms ease;
+				animation: feedback 1s ease-in 1;
+				font-weight: 500;
+			}
+
+			.rate-bg:active {
+				transition: none;
+				opacity: .5;
+			}
+
+			.ad-full {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				background-color: rgba(0, 0, 0, .5);
+				display: none;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.ad-full-bg {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				background: radial-gradient(#f7d15e, #f7ad5e);
+				border-radius: 10px;
+			}
+
+			.ad-full-img {
+				width: 90%;
+				max-width: 640px;
+			}
+
+			.ad-btn {
+				width: 100%;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.ad-full-install {
+				background-color: #f2f3fc;
+				padding: 10px 20px;
+				border-radius: 10px;
+				margin: 20px 0;
+			}
+
+			.ad-full-install:active {
+				opacity: .4;
+			}
+		</style>
+		<div class="rate-bg">Rate us on Google play store</div>
+
+	</div><!--ct-bg closed-->
+
+
+	<div class="ad-full">
+		<div class="ad-full-bg">
+			<img src="res/ad/animesqr.png" class="ad-full-img">
+			<div class="ad-btn">
+				<div class="ad-full-install">INSTALL</div>
+				<div class="ad-full-install">CLOSE</div>
+			</div>
+		</div>
+
+	</div>
+
+	<audio id="button2" src="res/button2.mp3"></audio>
+	<div class="toast"></div>
+	<script src="movie/movie.js"></script>
+	<script src="actor/res/actor.js"></script>
+	<script src="song/res/song.js"></script>
+	<script>
+		setTimeout(function () { $('.coffee-img, .coins, .no-ads-img, .feedback, .special-bg').css({ opacity: '1' }); }, 200);
+		setTimeout(function () { $('.ct1').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 100);
+		setTimeout(function () { $('.ct2').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 200);
+		setTimeout(function () { $('.ct3').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 300);
+		setTimeout(function () { $('.ct4').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 400);
+		setTimeout(function () { $('.ct5').css({ 'transform': 'scale(1)', 'opacity': '1' }); }, 500);
+
+		function Toast(toastStr) {
+			clearInterval(toastTimer);
+			$(".toast").html(toastStr);
+			$(".toast").fadeIn(0);
+			toastTimer = setTimeout(() => { $(".toast").fadeOut(); }, 3000);
+		}
+
+		if (localStorage.mal_bought_coins == null) {
+			localStorage.mal_bought_coins = 0;
+			localStorage.mal_isAdRemoved = 0;
+		}
+
+		if (localStorage.actorLevel == null) {
+			actorLevel = 1;
+			localStorage.actorLevel = actorLevel;
+		}
+		actorLevel = parseInt(localStorage.actorLevel);
+		console.log(actorLevel)
+		$("#actor-level").html(actorLevel);
+
+		if (localStorage.songLevel == null) {
+			songLevel = 1;
+			localStorage.songLevel = songLevel;
+		}
+		songLevel = parseInt(localStorage.songLevel);
+		console.log(songLevel)
+		$("#song-level").html(songLevel);
+
+		if (localStorage.mal_movie_xp == null) {
+			localStorage.mal_movie_xp = 0;
+		}
+		mal_movie_xp = localStorage.mal_movie_xp;
+		$('#movie-rate').text(Math.trunc(mal_movie_xp / 15));
+
+		// adVar = Math.floor(Math.random() * 4 + 1);
+		// $(".ad-bg").attr("src", "res/ad/" + adVar + ".png");
+
+		// if (adVar == 1 || adVar == 2)
+		// 	link = "https://play.google.com/store/apps/details?id=com.quec.brain.hit";
+		// if (adVar == 3)
+		// 	link = "https://play.google.com/store/apps/details?id=com.quec.kodeeshwaran";
+		// if (adVar == 4)
+		// 	link = "https://play.google.com/store/apps/details?id=com.quec.name.the.image";
+
+		function FullHide() {
+			setTimeout(function () { $('.coffee-img, .coins, .no-ads-img, .feedback, .rate-bg, .buy-bg, .ad-bg, .special-bg, .ad-class').css({ opacity: '0' }); }, 200);
+			setTimeout(function () { $('.ct1, .online-con, .online-bg, .ct-hold1').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 100);
+			setTimeout(function () { $('.ct2, .ct-hold2').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 200);
+			setTimeout(function () { $('.ct3, .ct-hold3').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 300);
+			setTimeout(function () { $('.ct4, .ct-hold4').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 400);
+			setTimeout(function () { $('.ct5, .ct-hold5').css({ 'transform': 'scale(1.2)', 'opacity': '0' }); }, 500);
+		}
+
+		localStorage.removeItem("ad");
+		newdate = new Date();
+		newdateobj = newdate.getDate();
+		window.localStorage.setItem("newdateobj", newdateobj);
+		newdateobj = localStorage.getItem("newdateobj");
+		olddateobj = localStorage.getItem("olddateobj");
+
+
+		if (localStorage.getItem("reward") === null) {
+			var reward = 0;
+			localStorage.setItem("reward", reward);
+			localStorage.setItem("GiveReward", 0);
+		} else {
+			var reward = localStorage.getItem("reward");
+		}
+
+		if (localStorage.getItem("coins") === null) {
+			var coins = 10;
+			localStorage.setItem("coins", coins);
+			location.reload();
+		} else {
+			var coins = localStorage.getItem("coins");
+			document.getElementById("coins").innerHTML = coins;
+		}
+
+		$('.ct').click(function () {
+			document.getElementById("button2").play();
+			FullHide();
+		});
+
+		$('.coins, .buy-bg, .no-ads-img').click(function () {
+			document.getElementById("button2").play();
+			FullHide();
+			setTimeout(() => { parent.location = "get_coins.html"; }, 700);
+		});
+
+		var levels = parseInt(localStorage.getItem("levels"));
+		if (localStorage.getItem("levels") === null) {
+			levels = 1;
+			document.getElementById("levels").innerHTML = "1";
+			parseInt(localStorage.setItem("levels", levels));
+		} else { document.getElementById("levels").innerHTML = levels; }
+
+		$('.ct1').click(function () {
+			if (levels <= levelTotal) {
+				setTimeout(function () {
+					parent.location = 'movie/movie.html';
+				}, 700);
+			} else {
+				setTimeout(function () {
+					parent.location = 'wait_update.html';
+				}, 600);
+			}
+		});
+		console.log(actorLevel);
+		console.log(actorLevelTotal);
+
+		$(".ct2").click(function () {
+			if (actorLevel <= actorLevelTotal) {
+				setTimeout(function () {
+					parent.location = 'actor/html/actor_content.html';
+				}, 700);
+			} else {
+				setTimeout(function () {
+					parent.location = 'wait_update.html';
+				}, 600);
+			}
+		});
+		$(".ct3").click(function () {
+			console.log('songLevel', songLevel)
+			console.log('songLevels_total', songLevelTotal)
+			if (songLevel <= songLevelTotal) {
+				setTimeout(function () {
+					parent.location = 'song/song_content.html';
+				}, 700);
+			} else {
+				setTimeout(function () {
+					parent.location = 'wait_update.html';
+				}, 600);
+			}
+		});
+
+		$('.coffee-img').click(function () {
+			setTimeout(() => {
+				parent.location = 'https://www.buymeacoffee.com/shameelAbid';
+			}, 400);
+		});
+
+		$(".rate-bg").click(function () {
+			setTimeout(() => {
+				parent.location = "https://play.google.com/store/apps/details?id=com.quec.guess.malayalam";
+			}, 200);
+		});
+
+		$(".ad-bg").click(function () {
+			setTimeout(() => {
+				parent.location = 'https://play.google.com/store/apps/details?id=com.quec.anime.guess';
+			}, 200);
+		});
+
+		$('#movieOnline').click(function () {
+			localStorage.onlineMode = 'movie';
+			FullHide();
+			setTimeout(() => {
+				parent.location = 'online-mode.html';
+			}, 700);
+		});
+
+		if (localStorage.Inter == 'NaN' || localStorage.Inter == NaN) {
+			localStorage.Inter = 1;
+		}
+	</script>
+</body>
+
+</html>
