@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="res/jquery.min.js"></script>
+    <script src="res/scripts/jquery.min.js"></script>
     <style>
         @font-face {
             font-family: Rubik;
@@ -49,6 +49,8 @@
         .back-img {
             width: 50px;
             height: 50px;
+            background-color: #181d3d;
+            border-radius: 13px;
             transform: scale(1.2);
             opacity: 0;
             transition: all 350ms ease;
@@ -108,19 +110,35 @@
 
 <body>
     <div class="top">
-        <img src="res/back.webp" class="back-img active">
+        <img src="res/images/back.svg" class="back-img active">
         <div class="coins">
-            <img src="res/coins.webp" class="coins-img">
+            <img src="res/images/coins.webp" class="coins-img">
             <div id="coins">3</div>
         </div>
     </div>
     <style>
+        .more-apps {
+            display: none;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ct-bg {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 0;
+            justify-content: center;
+            align-items: center;
+            background-color: #bcbcbc;
+        }
+
         .ct {
             width: 90vw;
             max-width: 600px;
             margin-top: 15px;
             padding: 10px 0;
-            background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+            background: #181d3d;
             border-radius: 10px;
             display: flex;
             flex-wrap: wrap;
@@ -175,21 +193,21 @@
     <div class="bottom">
         <div class="ct ct1">
             <div class="ct-sub-bg">
-                <img src="res/coins.webp" class="hint-img"> + 5
+                <img src="res/images/coins.webp" class="hint-img"> + 5
             </div>
-            <div class="buy free active"><img src="res/video.webp" class="video-img"> Free</div>
+            <div class="buy free active"><img src="res/images/video.webp" class="video-img"> Free</div>
         </div>
 
         <div class="ct ct2">
             <div class="ct-sub-bg">
-                <img src="res/coins.webp" class="hint-img"> + 50
+                <img src="res/images/coins.webp" class="hint-img"> + 50
             </div>
             <div class="buy buy1 active">Buy</div>
         </div>
 
         <div class="ct ct3">
             <div class="ct-sub-bg">
-                <img src="res/coins.webp" class="hint-img"> + 100
+                <img src="res/images/coins.webp" class="hint-img"> + 100
             </div>
             <div class="buy buy2 active">
                 <div class="buy-ct">Buy</div>
@@ -198,10 +216,101 @@
 
         <div class="ct ct4">
             <div class="ct-sub-bg">
-                <img src="res/coins.webp" class="hint-img"> + 150
+                <img src="res/images/coins.webp" class="hint-img"> + 150
             </div>
             <div class="buy buy3 active">
                 <div class="buy-ct">Buy</div>
+            </div>
+        </div>
+
+        <style>
+        .claim-con {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+        .claim-bg {
+            width: 90%;
+            background-color: white;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px 0;
+            animation: claim-bg 0.4s ease 1;
+        } @keyframes claim-bg {
+            0% {transform: scale(0); opacity: 0;}
+            100% {transform: scale(1); opacity: 1;}
+        }
+        .earned-img {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .earn-img {
+            width: 40px;
+            height: 40px;
+        }
+        .earn-txt {
+            font-size: 25px;
+            margin-left: 8px;
+            color: green;
+        }
+        .claim-btn {
+            width: 90%;
+            padding: 15px 0;
+            background-color: green;
+            text-align: center;
+            color: white;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 2px 2px black;
+        } .claim-btn:active {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+
+        .toast {
+            width: 90%;
+            position: fixed;
+            top: 80%;
+            left: 5%;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            padding: 10px 0;
+            display: none;
+        }
+        </style>
+        <div class="claim-con">
+            <div class="claim-bg">
+                <div class="earned-img">
+                    <img class="earn-img" src="res/images/coins.webp">
+                    <div class="earn-txt">+5</div>
+                </div>
+                <div class="claim-btn">CLAIM</div>
+            </div>
+        </div>
+    
+        <div class="toast"></div>
+        <div class="ct-bg">
+            <div>Daily Reward</div>
+            <div class="sml-txt" style="width: 250px; font-size: 10px; padding-left: 25px;">Get a chance to win 1 to 10 coins daily for FREE!</div>
+            <div class="ct ct5">
+                <div class="ct-sub-bg" style="font-size: 19px;">
+                    <img src="res/images/coins.webp" class="hint-img"> 1 - 10
+                </div>
+                <div class="buy buy4 active">
+                    <div class="buy-ct">FREE</div>
+                </div>
             </div>
         </div>
 
@@ -263,18 +372,18 @@
         </style>
         <div class="ct" style="color: white;">
             <div class="ct-top">
-                <img src="res/block.webp" class="hint-img">
+                <img src="res/images/block.webp" class="hint-img">
                 <div class="remove-txt">Remove Ads for FREE</div>
             </div>
             <div class="ct-mid">
-                <div class="rem-coins-bg"><img src="res/coins.webp" class="rem-img">0</div>
+                <div class="rem-coins-bg"><img src="res/images/coins.webp" class="rem-img">0</div>
                 <div class="rem-bar-bg">
-                    <div class="rem-fill-bar"><div class="rem-coins-bg rem-fill-coins"><img src="res/coins.webp" class="rem-img"><span id="rem-fill-coins">0</span></div></div>
+                    <div class="rem-fill-bar"><div class="rem-coins-bg rem-fill-coins"><img src="res/images/coins.webp" class="rem-img"><span id="rem-fill-coins">0</span></div></div>
                 </div>
-                <div class="rem-coins-bg"><img src="res/coins.webp" class="rem-img">500</div>
+                <div class="rem-coins-bg"><img src="res/images/coins.webp" class="rem-img">500</div>
             </div>
             <div class="ct-btm">
-                <div class="rem-btm-txt">Buy <span><img src="res/coins.webp" class="rem-img"></span> 500 or more coins to remove Interstitial (Full Screen) Ads</div>
+                <div class="rem-btm-txt">Buy <span><img src="res/images/coins.webp" class="rem-img"></span> 500 or more coins to remove Interstitial (Full Screen) Ads</div>
                 <div class="buy rem-ad-btn active" style="color: black; width: 180px; opacity: .3;">Remove Ad</div>
             </div>
         </div>
@@ -315,47 +424,50 @@
                 height: 40px;
             }
         </style>
-        <div class="divider-bg">
-            <div class="divider-bar"></div>
-            <div class="divider-ct">More apps</div>
-            <div class="divider-bar"></div>
-        </div>
-        <div class="ct">
-            <img src="res/app/eng.png" class="app-img">
-            <div class="app-name">Guess English Songs</div>
-            <div class="buy active">
-                <div class="buy-ct"
-                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.english`'>
-                    Install</div>
+        <div class="more-apps">
+            <div class="divider-bg">
+                <div class="divider-bar"></div>
+                <div class="divider-ct">More apps</div>
+                <div class="divider-bar"></div>
+            </div>
+            <div class="ct">
+                <img src="res/images/app/eng.png" class="app-img">
+                <div class="app-name">Guess English Songs</div>
+                <div class="buy active">
+                    <div class="buy-ct"
+                        onclick='parent.location=`https://play.google.com/store/apps/details?id=com.logiclore.english`'>
+                        Install</div>
+                </div>
+            </div>
+            <div class="ct">
+                <img src="res/images/app/anime.png" class="app-img">
+                <div class="app-name">Guess Anime</div>
+                <div class="buy active">
+                    <div class="buy-ct"
+                        onclick='parent.location=`https://play.google.com/store/apps/details?id=com.logiclore.anime.guess`'>
+                        Install</div>
+                </div>
+            </div>
+            <div class="ct">
+                <img src="res/images/app/bollywood.png" class="app-img">
+                <div class="app-name">Guess Bollywood Movie</div>
+                <div class="buy active">
+                    <div class="buy-ct"
+                        onclick='parent.location=`https://play.google.com/store/apps/details?id=com.logiclore.guess.bollywood`'>
+                        Install</div>
+                </div>
+            </div>
+            <div class="ct">
+                <img src="res/images/app/tamil.png" class="app-img">
+                <div class="app-name">Guess Tamil Movie</div>
+                <div class="buy active">
+                    <div class="buy-ct"
+                        onclick='parent.location=`https://play.google.com/store/apps/details?id=com.logiclore.guess.tamil`'>
+                        Install</div>
+                </div>
             </div>
         </div>
-        <div class="ct">
-            <img src="res/app/anime.png" class="app-img">
-            <div class="app-name">Guess Anime</div>
-            <div class="buy active">
-                <div class="buy-ct"
-                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.anime.guess`'>
-                    Install</div>
-            </div>
-        </div>
-        <div class="ct">
-            <img src="res/app/bollywood.png" class="app-img">
-            <div class="app-name">Guess Bollywood Movie</div>
-            <div class="buy active">
-                <div class="buy-ct"
-                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.bollywood`'>
-                    Install</div>
-            </div>
-        </div>
-        <div class="ct">
-            <img src="res/app/tamil.png" class="app-img">
-            <div class="app-name">Guess Tamil Movie</div>
-            <div class="buy active">
-                <div class="buy-ct"
-                    onclick='parent.location=`https://play.google.com/store/apps/details?id=com.quec.guess.tamil`'>
-                    Install</div>
-            </div>
-        </div>
+        
         <div class="empty"></div>
 
     </div>
@@ -372,9 +484,14 @@
 
         }
 
+        // Get the current date
+        var currentDate = new Date();
+        var dayOfMonth = currentDate.getDate();
+
         coins = parseInt(localStorage.coins); $("#coins").html(coins);
         bought_coins = parseInt(localStorage.mal_bought_coins)
         isAdRemoved = parseInt(localStorage.mal_isAdRemoved)
+        isDailyReward = parseInt(localStorage.mal_isDailyReward);
         adRemoveLimit = 500;
 
         function UpdateBoughtCoin() {
@@ -426,6 +543,49 @@
         $(".buy3").click(function () {
             setTimeout(() => { parent.location = "https://item3"; }, 350);
         });
+        $(".buy4").click(function () {
+            setTimeout(() => {
+                if (isDailyReward != dayOfMonth) {
+                    isDailyReward = dayOfMonth;
+                    localStorage.mal_isDailyReward = isDailyReward;
+                    tmp = Math.floor(Math.random() * 10)
+                    console.log('tmp', tmp)
+                    if (tmp > 8) {
+                        reward = (Math.floor(Math.random() * 9)) + 1
+                    } else {
+                        reward = (Math.floor(Math.random() * 4)) + 1
+                    }
+                    console.log('reward', reward)
+                    coins += parseInt(reward);
+                    localStorage.coins = coins;
+                    $("#coins").text(coins);
+                    $(".earn-txt").text('+'+ reward);
+                    $(".claim-con").css({display:'flex'});
+                } else {
+                    Toast('Check back tommorrow')
+                }
+            }, 350);
+        });
+
+        $('.claim-btn').click(function() {
+            setTimeout(() => {
+                $(".claim-con").fadeOut();
+            }, 400);
+        });
+
+        function Toast(str) {
+            $(".toast").text(str).fadeIn();
+            
+            setTimeout(() => {
+                $(".toast").text(str).fadeOut();
+            }, 1500);
+        }
+
+        setInterval(() => {
+            coins = parseInt(localStorage.aCoins); $("#coins").html(coins);
+            bought_coins = parseInt(localStorage.anime_bought_coins);
+            UpdateBoughtCoin();
+        }, 2500);
 
         setInterval(() => {
             coins = parseInt(localStorage.coins); $("#coins").html(coins);

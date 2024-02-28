@@ -1,9 +1,9 @@
 <html>
 
 <head>
-	<script src="../res/jquery.min.js"></script>
+	<script src="../res/scripts/jquery.min.js"></script>
 	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
-	<link rel="stylesheet" type="text/css" href="../res/style.css" />
+	<link rel="stylesheet" type="text/css" href="../res/scripts/style.css" />
 </head>
 
 <body>
@@ -35,7 +35,7 @@
 		.img-error-btn,
 		.img-error-btn2 {
 			width: 50%;
-			background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(197, 197, 197) 100%);
+			background: #181d3d;
 			color: #6d84f5;
 			padding: 2vw 4vw;
 			background-color: ecaaaa;
@@ -81,7 +81,7 @@
 		<div class="game-over">
 			<div class="g-o-ti">FAILED</div>
 			<div class="g-o-ct-bg">
-				<img src="../res/skip.webp" class="button next">
+				<img src="../res/images/skip.webp" class="button next">
 			</div>
 		</div>
 	</div>
@@ -94,7 +94,7 @@
 			</div>
 			<div class="ans-txt" id="ans-txt"></div>
 			<div class="g-o-ct-bg">
-				<img src="../res/skip.webp" class="button next">
+				<img src="../res/images/skip.webp" class="button next">
 			</div>
 		</div>
 	</div>
@@ -275,11 +275,11 @@
 				</div>
 			</div>
 			<div class="win-coin-bg">
-				<img src="../res/coins.webp" class="coins-img">
+				<img src="../res/images/coins.webp" class="coins-img">
 				<div class="win-coins">+0</div>
 			</div>
 			<div class="rating-bg">
-				<img src="../res/rating.svg" class="rating-img">
+				<img src="../res/images/rating.svg" class="rating-img">
 				<div class="rating-txt">23</div>
 			</div>
 			<div class="level-up">Level Up+</div>
@@ -314,8 +314,8 @@
 			<div class="out-coins-ct">Watch a video or buy the coins</div>
 			<div class="out-coins-ct2">Press DONE to claim your reward</div>
 			<div class="out-coins-btn-bg">
-				<img src="../res/ok.webp" class="button btn1">
-				<img src="../res/cancel.webp" class="button btn3">
+				<img src="../res/images/ok.webp" class="button btn1">
+				<img src="../res/images/cancel.webp" class="button btn3">
 			</div>
 		</div>
 	</div>
@@ -324,9 +324,9 @@
 
 		<div class="top">
 
-			<img src="../res/back.webp" class="back-img">
+			<img src="../res/images/back.svg" class="back-img">
 			<div class="levels">LEVEL<span id="main-levels"></span></div>
-			<div class="coins"><img src="../res/coins.webp" class="coins-img">
+			<div class="coins"><img src="../res/images/coins.webp" class="coins-img">
 				<div id="coins">0</div>
 			</div>
 		</div>
@@ -349,7 +349,7 @@
 			}
 
 			.tool-btn {
-				background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+				background: #181d3d;
 				color: white;
 				border-radius: 10px;
 				font-weight: 100;
@@ -438,9 +438,9 @@
 			for (i = 1; i <= 15; i++) {
 				$('.ques-bg').append(`
 					<div class="q-ct">
-						<img src="../res/tick.svg" class="q-img" id='you${i}'>
+						<img src="../res/images/tick.svg" class="q-img" id='you${i}'>
 						<div class="q-text">${i}</div>
-						<img src="../res/cross.svg" class="q-img" id='opp${i}'>
+						<img src="../res/images/cross.svg" class="q-img" id='opp${i}'>
 					</div>
 				`);
 			}
@@ -455,21 +455,21 @@
 		<div class="buy-coins-bg">
 			<div class="buy-coins-ct buy-coins-ct1">
 				<div class="ct-sub-bg">
-					<img src="../res/coins.webp" class="hint-img"> + 5
+					<img src="../res/images/coins.webp" class="hint-img"> + 5
 				</div>
-				<div class="buy free active"><img src="../res/video.webp" class="video-img"> Free</div>
+				<div class="buy free active"><img src="../res/images/video.webp" class="video-img"> Free</div>
 			</div>
 
 			<div class="buy-coins-ct buy-coins-ct2">
 				<div class="ct-sub-bg">
-					<img src="../res/coins.webp" class="hint-img"> + 50
+					<img src="../res/images/coins.webp" class="hint-img"> + 50
 				</div>
 				<div class="buy buy1 active">Buy</div>
 			</div>
 
 			<div class="buy-coins-ct buy-coins-ct3">
 				<div class="ct-sub-bg">
-					<img src="../res/coins.webp" class="hint-img"> + 100
+					<img src="../res/images/coins.webp" class="hint-img"> + 100
 				</div>
 				<div class="buy buy2 active">
 					<div class="buy-ct">Buy</div>
@@ -479,7 +479,7 @@
 
 			<div class="buy-coins-ct buy-coins-ct4">
 				<div class="ct-sub-bg">
-					<img src="../res/coins.webp" class="hint-img"> + 150
+					<img src="../res/images/coins.webp" class="hint-img"> + 150
 				</div>
 				<div class="buy buy3 active">
 					<div class="buy-ct">Buy</div>
@@ -489,13 +489,13 @@
 		</div>
 	</div>
 
-	<audio id="finish" src="../res/finish.mp3"></audio>
-	<audio id="button" src="../res/button.mp3"></audio>
-	<audio id="button2" src="../res/button2.mp3"></audio>
-	<audio id="button3" src="../res/button3.mp3"></audio>
-	<audio id="over" src="../res/over.mp3"></audio>
-	<audio id="hint" src="../res/hint.mp3"></audio>
-	<audio id="win" src="../res/win.mp3"></audio>
+	<audio id="finish" src="../res/audio/finish.mp3"></audio>
+	<audio id="button" src="../res/audio/button.mp3"></audio>
+	<audio id="button2" src="../res/audio/button2.mp3"></audio>
+	<audio id="button3" src="../res/audio/button3.mp3"></audio>
+	<audio id="over" src="../res/audio/over.mp3"></audio>
+	<audio id="hint" src="../res/audio/hint.mp3"></audio>
+	<audio id="win" src="../res/audio/win.mp3"></audio>
 	<script src="movie.js"></script>
 	<script>
 		function checkNetConnection() {
@@ -689,12 +689,12 @@
 					//correct
 					console.log('Correct Ans!');
 					opponentScore++;
-					$('#opp' + opponentQuesCount).attr('src', '../res/tick.svg');
+					$('#opp' + opponentQuesCount).attr('src', '../res/images/tick.svg');
 					$('#opp' + opponentQuesCount).css({ visibility: 'visible' });
 				} else {
 					//wrong
 					console.log('wrong Ans!');
-					$('#opp' + opponentQuesCount).attr('src', '../res/cross.svg');
+					$('#opp' + opponentQuesCount).attr('src', '../res/images/cross.svg');
 					$('#opp' + opponentQuesCount).css({ visibility: 'visible' });
 				}
 				opponentQuesCount++;
@@ -1002,13 +1002,13 @@
 					if (typedAns == full2Ans) {
 						// correct
 						document.getElementById("finish").play();
-						$("#you" + youQuestCount).attr('src', '../res/tick.svg');
+						$("#you" + youQuestCount).attr('src', '../res/images/tick.svg');
 						$("#you" + youQuestCount).css({ visibility: 'visible' });
 						score++;
 					} else {
 						// wrong
 						document.getElementById("over").play();
-						$("#you" + youQuestCount).attr('src', '../res/cross.svg');
+						$("#you" + youQuestCount).attr('src', '../res/images/cross.svg');
 						$("#you" + youQuestCount).css({ visibility: 'visible' });
 					}
 

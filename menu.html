@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-	<script src="res/jquery.min.js"></script>
+	<script src="res/scripts/jquery.min.js"></script>
 	<meta name="viewport" content="initial-scale=2, maximum-scale=1.0, user-scalable=no" />
 	<style>
 		@font-face {
@@ -121,7 +121,7 @@
 			transition: all 350ms ease;
 			position: relative;
 			color: white;
-			background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+			background: #181d3d;
 			overflow: hidden;
 			/* box-shadow: 0px 0px 18px rgba(0, 0, 0, .3); */
 		}
@@ -192,6 +192,8 @@
 			width: 35px;
 			height: 35px;
 			margin-left: 20px;
+			background-color: #f74e5c;
+			border-radius: 10px;
 		}
 		.no-ads-img {
 			width: 35px;
@@ -283,14 +285,14 @@
 <body>
 	<div class="mid">
 		<div class="coins">
-			<img src="res/coins.webp" class="coins-img">
+			<img src="res/images/coins.webp" class="coins-img">
 			<div id="coins">0</div>
-			<img src="res/add.webp" class="add-img">
+			<img src="res/images/add.webp" class="add-img">
 		</div>
-		<img src="res/block.webp" class="no-ads-img">
+		<img src="res/images/block.webp" class="no-ads-img">
 		<div class="coffee-bg">
 			<div class="coffee-txt">Support me!</div>
-			<img src="res/coffee.webp" class="coffee-img">
+			<img src="res/images/coffee.webp" class="coffee-img">
 		</div>
 		<!-- <div class="special-bg">
 		</div> -->
@@ -299,7 +301,7 @@
 	<div class="ct-bg">
 		<div class="ct-hold ct-hold1">
 			<div class="ct ct1" style="width:65%">
-				<img src="res/movie2.png" class="ct-main-img">
+				<img src="res/images/movie2.png" class="ct-main-img">
 				<div class="ct-txt">MOVIE</div>
 				<div class="score"><span id="levels">0</span></div>
 				<div class="newAdded"><span id="newLevel"></span> new levels added</div>
@@ -307,7 +309,7 @@
 			<div class="online-bg" id="movieOnline">
 				<div class="online-txt">PLAY ONLINE</div>
 				<div class="rating-img-bg">
-					<img src="res/rating.svg" class="rating-img">
+					<img src="res/images/rating.svg" class="rating-img">
 					<div class="rating-txt" id="movie-rate"></div>
 				</div>
 			</div>
@@ -331,7 +333,7 @@
 			.online-bg {
 				width: 30%;
 				height: 90px;
-				background: linear-gradient(229deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+				background: #181d3d;
 				border-radius: 10px;
 				display: flex;
 				flex-wrap: wrap;
@@ -377,7 +379,7 @@
 		</style>
 
 
-		<img src="res/ad/anime640x100.png" class="ad-bg">
+		<img src="res/images/ad/anime640x100.png" class="ad-bg" style="display: none;">
 
 		<div class="ct-hold ct-hold2">
 			<div class="ct ct2">
@@ -397,14 +399,14 @@
 					}
 				</style>
 				<div class="new-badge">NEW</div>
-				<img src="res/actor2.png" class="ct-main-img">
+				<img src="res/images/actor2.png" class="ct-main-img">
 				<div class="ct-txt">ACTOR/ACTRESS</div>
 				<div class="score"><span id="actor-level">0</span></div>
 			</div>
 			<!-- <div class="online-bg">
 				<div class="online-txt">PLAY ONLINE</div>
 				<div class="rating-img-bg">
-					<img src="res/rating.svg" class="rating-img">
+					<img src="res/images/rating.svg" class="rating-img">
 					<div class="rating-txt">1</div>
 				</div>
 			</div> -->
@@ -413,7 +415,7 @@
 		<div class="ct-hold ct-hold3">
 			<div class="ct ct3">
 				<div class="new-badge">NEW</div>
-				<img src="res/song.png" class="ct-main-img">
+				<img src="res/images/song.png" class="ct-main-img">
 				<div class="ct-txt">Songs</div>
 				<div class="score"><span id="song-level">0</span></div>
 			</div>
@@ -436,7 +438,7 @@
 
 			.rate-bg {
 				width: 85vw;
-				background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+				background: #181d3d;
 				border-radius: 10px;
 				text-align: center;
 				padding: 2vh 0;
@@ -501,7 +503,7 @@
 
 	<div class="ad-full">
 		<div class="ad-full-bg">
-			<img src="res/ad/animesqr.png" class="ad-full-img">
+			<img src="res/images/ad/animesqr.png" class="ad-full-img">
 			<div class="ad-btn">
 				<div class="ad-full-install">INSTALL</div>
 				<div class="ad-full-install">CLOSE</div>
@@ -533,6 +535,7 @@
 		if (localStorage.mal_bought_coins == null) {
 			localStorage.mal_bought_coins = 0;
 			localStorage.mal_isAdRemoved = 0;
+			localStorage.mal_isDailyReward = 0;
 		}
 
 		if (localStorage.actorLevel == null) {
@@ -561,11 +564,11 @@
 		// $(".ad-bg").attr("src", "res/ad/" + adVar + ".png");
 
 		// if (adVar == 1 || adVar == 2)
-		// 	link = "https://play.google.com/store/apps/details?id=com.quec.brain.hit";
+		// 	link = "https://play.google.com/store/apps/details?id=com.logiclore.brain.hit";
 		// if (adVar == 3)
-		// 	link = "https://play.google.com/store/apps/details?id=com.quec.kodeeshwaran";
+		// 	link = "https://play.google.com/store/apps/details?id=com.logiclore.kodeeshwaran";
 		// if (adVar == 4)
-		// 	link = "https://play.google.com/store/apps/details?id=com.quec.name.the.image";
+		// 	link = "https://play.google.com/store/apps/details?id=com.logiclore.name.the.image";
 
 		function FullHide() {
 			setTimeout(function () { $('.coffee-img, .coins, .no-ads-img, .feedback, .rate-bg, .buy-bg, .ad-bg, .special-bg, .ad-class').css({ opacity: '0' }); }, 200);

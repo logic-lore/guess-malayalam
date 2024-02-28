@@ -203,15 +203,15 @@ function SqAdAppend() {
 	}, 600);
 
 	if (adVar == 1)
-		link = "https://play.google.com/store/apps/details?id=com.quec.guess.bollywood";
+		link = "https://play.google.com/store/apps/details?id=com.logiclore.guess.bollywood";
 	if (adVar == 2)
-		link = "https://play.google.com/store/apps/details?id=com.quec.kodeeshwaran";
+		link = "https://play.google.com/store/apps/details?id=com.logiclore.kodeeshwaran";
 	if (adVar == 3)
-		link = "https://play.google.com/store/apps/details?id=com.quec.guess.tamil";
+		link = "https://play.google.com/store/apps/details?id=com.logiclore.guess.tamil";
 	if (adVar == 4)
-		link = "https://play.google.com/store/apps/details?id=com.quec.anime.guess";
+		link = "https://play.google.com/store/apps/details?id=com.logiclore.anime.guess";
 	if (adVar == 5)
-		link = "https://play.google.com/store/apps/details?id=com.quec.queball";
+		link = "https://play.google.com/store/apps/details?id=com.logiclore.queball";
 }
 $(".box-ad").click(function() {
 	parent.location=link;

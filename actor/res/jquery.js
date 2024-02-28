@@ -87,15 +87,15 @@ $(document).ready(function () {
 		}, 600);
 	
 		if (adVar == 1)
-			link = "https://play.google.com/store/apps/details?id=com.quec.guess.bollywood";
+			link = "https://play.google.com/store/apps/details?id=com.logiclore.guess.bollywood";
 		if (adVar == 2)
-			link = "https://play.google.com/store/apps/details?id=com.quec.kodeeshwaran";
+			link = "https://play.google.com/store/apps/details?id=com.logiclore.kodeeshwaran";
 		if (adVar == 3)
-			link = "https://play.google.com/store/apps/details?id=com.quec.guess.tamil";
+			link = "https://play.google.com/store/apps/details?id=com.logiclore.guess.tamil";
 		if (adVar == 4)
-			link = "https://play.google.com/store/apps/details?id=com.quec.anime.guess";
+			link = "https://play.google.com/store/apps/details?id=com.logiclore.anime.guess";
 		if (adVar == 5)
-			link = "https://play.google.com/store/apps/details?id=com.quec.queball";
+			link = "https://play.google.com/store/apps/details?id=com.logiclore.queball";
 	}
 	$(".box-ad").click(function() {
 		parent.location=link;
@@ -105,7 +105,7 @@ $(document).ready(function () {
 		$(".tile").off();
 
 		for (i=0; i<=50; i++) {
-			$(".tile-bg").append(`<div id="tile${i}" onclick="TileClick(${i})" class="tile"><div class="tile-coin-bg"><img src="../../res/coins.webp" class="tile-coin-img">1</div></div>`)
+			$(".tile-bg").append(`<div id="tile${i}" onclick="TileClick(${i})" class="tile"><div class="tile-coin-bg"><img src="../../res/images/coins.webp" class="tile-coin-img">1</div></div>`)
 		}
 
 		for (i in tile_list) {
@@ -148,7 +148,7 @@ $(document).ready(function () {
 		}, 400);
 
 		$(".option").css({
-			background: 'linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%)'
+			background: '#181d3d'
 		});
 
 		MainShuffle();
@@ -196,7 +196,7 @@ $(document).ready(function () {
 	$('.retry').click(function () {
 		interact = true;
 		$(".option").css({
-			background: 'linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%)'
+			background: '#181d3d'
 		});
 		setTimeout(() => { $(".game-over").css({ transform: 'scale(1.2)', opacity: '0' }); }, 100);
 		$('.game-over-con').fadeOut();

@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "Rubik";
-	src: url(fonts/Roboto-Medium.ttf);
+	src: url(../fonts/Roboto-Medium.ttf);
 }
 
 html {
@@ -73,6 +73,8 @@ break {
 .back-img {
 	width: 50px;
 	height: 50px;
+	background-color: #181d3d;
+	border-radius: 13px;
 	transform: scale(1.2);
 	opacity: 0;
 } .back-img:active {
@@ -235,7 +237,7 @@ break {
 	font-size: x-large;
 	text-align: center;
 	border-radius: 10px;
-	background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+	background: #181d3d;
 	color: white;
 	box-shadow: 0px 0px 7px #00000024;
 	margin: 1vw;
@@ -320,7 +322,7 @@ break {
 	max-width: 500px;
 	padding: 20px;
 	background: rgb(111, 134, 245);
-	background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+	background: #181d3d;
 	border-radius: 3vw;
 	animation: out-coins 400ms ease 1;
 	transition: all 400ms ease;
@@ -389,7 +391,8 @@ break {
 .button {
 	width: 60px;
 	height: 60px;
-	padding: 2vh 3vw;
+	background-color: #f74e5c;
+	border-radius: 18px;
 	text-align: center;
 	margin: 0 auto;
 	margin-top: 15px;
@@ -417,9 +420,6 @@ break {
 	align-items: center;
 	background-color: rgba(0, 0, 0, 0.54);
 }
-/* .winner-con {
-	display: flex;
-} */
 
 .tool-bg {
 	width: 100%;
@@ -438,6 +438,8 @@ break {
 	height: 14vw;
 	max-width: 80px;
 	max-height: 80px;
+	background-color: #f74e5c;
+	border-radius: 17px;
 } .skip-img:active {
 	transform: scale(.9);
 }
@@ -498,7 +500,7 @@ break {
 .out-coins {
 	padding: 4vw;
 	width: 70vw;
-	background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+	background: #181d3d;
 	border-radius: 3vw;
 	border-radius: 10px;
 	animation: out-coins 400ms ease 1;
@@ -611,7 +613,7 @@ break {
 	max-width: 600px;
 	margin-top: 10px;
 	padding: 10px 0;
-	background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+	background: #181d3d;
 	border-radius: 10px;
 	display: flex;
 	justify-content: space-between;

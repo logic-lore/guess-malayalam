@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online-Menu</title>
-    <script src="res/jquery.min.js"></script>
+    <script src="res/scripts/jquery.min.js"></script>
     <style>
         @font-face {
             font-family: "Rubik";
@@ -97,17 +97,17 @@
         <div class="txt">Searching...</div>
         <div class="main-ct">
             <div class="profile">
-                <img src="res/profile.svg" class="profile-img">
+                <img src="res/images/profile.svg" class="profile-img">
                 <div class="profile-txt">You</div>
             </div>
             <div class="vs-txt">VS</div>
             <div class="profile">
-                <img src="res/profile.svg" class="profile-img">
+                <img src="res/images/profile.svg" class="profile-img">
                 <div class="profile-txt" id="opp-txt">???????</div>
             </div>
         </div>
         <div class="amt-bg">
-            <img src="res/coins.webp" class="coins-img">
+            <img src="res/images/coins.webp" class="coins-img">
             <div id="coins">10</div>
         </div>
     </div>
@@ -133,7 +133,7 @@
             max-width: 500px;
             padding: 20px;
             background: rgb(111, 134, 245);
-            background: linear-gradient(90deg, rgba(111, 134, 245, 1) 0%, rgba(83, 111, 237, 1) 100%);
+            background: #181d3d;
             border-radius: 3vw;
             animation: game-over 400ms ease 1;
             transition: all 400ms ease;
@@ -223,13 +223,13 @@
         <div class="game-over">
             <div class="online-top">
                 <div class="online-txt">Select an Amount</div>
-                <img src="res/close.svg" class="close-img">
+                <img src="res/images/close.svg" class="close-img">
             </div>
             <div class="online-btm">
-                <div class="rew" id="rew1"><img src="res/coins.webp" class="coins-img">0 (no reward)</div>
-                <div class="rew" id="rew2"><img src="res/coins.webp" class="coins-img">5</div>
-                <div class="rew" id="rew3"><img src="res/coins.webp" class="coins-img">10</div>
-                <div class="rew" id="rew4"><img src="res/coins.webp" class="coins-img">15</div>
+                <div class="rew" id="rew1"><img src="res/images/coins.webp" class="coins-img">0 (no reward)</div>
+                <div class="rew" id="rew2"><img src="res/images/coins.webp" class="coins-img">5</div>
+                <div class="rew" id="rew3"><img src="res/images/coins.webp" class="coins-img">10</div>
+                <div class="rew" id="rew4"><img src="res/images/coins.webp" class="coins-img">15</div>
             </div>
         </div>
     </div>
